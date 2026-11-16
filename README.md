@@ -134,9 +134,9 @@ from bank_account import PersonalAccount
 acc = PersonalAccount(1001, "Aidar")
 acc.deposit(1000)
 acc.withdraw(300)
-acc = acc + 200        # deposit
-acc -= 100             # withdrawal
-print(acc.get_balance())   # 800.0
+acc = acc + 200       
+acc -= 100             
+print(acc.get_balance())   
 acc.print_transaction_history()
 print(acc)
 ```

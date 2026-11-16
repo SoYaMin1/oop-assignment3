@@ -1,15 +1,4 @@
-"""
-main.py
-
-Interactive demo of the PersonalAccount class (sample test with user inputs).
-
-Run:
-    python main.py          # interactive menu
-    python main.py --demo   # automatic demo without input
-"""
-
 import sys
-
 from bank_account import PersonalAccount
 
 

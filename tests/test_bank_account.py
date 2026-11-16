@@ -1,7 +1,4 @@
-"""
-Unit tests for Amount and PersonalAccount.
-
-Run from the project root:
+"""Run from the project root:
     python -m unittest discover -s tests -v
 """
 
