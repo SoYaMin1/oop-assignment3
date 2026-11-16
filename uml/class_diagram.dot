@@ -1,0 +1,55 @@
+digraph UML {
+    rankdir=LR;
+    graph [fontname="Helvetica", bgcolor="white", pad="0.4", nodesep="1", ranksep="1.4"];
+    node  [shape=plaintext, fontname="Helvetica", fontsize=12];
+    edge  [fontname="Helvetica", fontsize=11];
+
+    PersonalAccount [label=<
+<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" BGCOLOR="#FFFDF0">
+  <TR><TD BGCOLOR="#2E5A88"><FONT COLOR="white"><B>PersonalAccount</B></FONT></TD></TR>
+  <TR><TD ALIGN="LEFT" BALIGN="LEFT">
+    - account_number : int<BR/>
+    - account_holder : str<BR/>
+    - balance : float = 0.0<BR/>
+    - transactions : list[Amount]
+  </TD></TR>
+  <HR/>
+  <TR><TD ALIGN="LEFT" BALIGN="LEFT">
+    + __init__(account_number: int, account_holder: str)<BR/>
+    + deposit(amount: float) : Amount<BR/>
+    + withdraw(amount: float) : Amount<BR/>
+    + print_transaction_history() : None<BR/>
+    + get_balance() : float<BR/>
+    + get_transactions() : list[Amount]<BR/>
+    + get_account_number() : int<BR/>
+    + set_account_number(account_number: int) : None<BR/>
+    + get_account_holder() : str<BR/>
+    + set_account_holder(account_holder: str) : None<BR/>
+    + __str__() : str<BR/>
+    + __add__(amount: float) : PersonalAccount<BR/>
+    + __sub__(amount: float) : PersonalAccount
+  </TD></TR>
+</TABLE>>];
+
+    Amount [label=<
+<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" BGCOLOR="#FFFDF0">
+  <TR><TD BGCOLOR="#2E5A88"><FONT COLOR="white"><B>Amount</B></FONT></TD></TR>
+  <TR><TD ALIGN="LEFT" BALIGN="LEFT">
+    + amount : float<BR/>
+    + timestamp : datetime<BR/>
+    + transaction_type : str  {'DEPOSIT' | 'WITHDRAWAL'}
+  </TD></TR>
+  <HR/>
+  <TR><TD ALIGN="LEFT" BALIGN="LEFT">
+    + __init__(amount: float, transaction_type: str,<BR/>
+    &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;timestamp: datetime = now())<BR/>
+    + __str__() : str
+  </TD></TR>
+</TABLE>>];
+
+    PersonalAccount -> Amount [
+        dir=both, arrowtail=diamond, arrowhead=vee,
+        taillabel="1", headlabel="0..*", labeldistance=2.2,
+        label="  transactions\n  (composition)  "
+    ];
+}
